@@ -7,6 +7,7 @@ export async function GET() {
   try {
     await dbConnect();
     const guests = await Guest.find({});
+
     return NextResponse.json({ data: guests });
   } catch (error) {
     return NextResponse.json({ error });
@@ -18,15 +19,21 @@ export async function POST(req: NextRequest) {
     await dbConnect();
     const data: NewGuestDTO = await req.json();
 
-    const contactExists = await Guest.find({ contact: data.contact });
+    const contactExists = await Guest.findOne({ contact: data.contact });
 
     if (contactExists) {
-      throw new Error("Este número de contacto ya esta registrado");
+      return NextResponse.json(
+        { message: "Este número de contacto ya está registrado" },
+        { status: 409 }
+      );
     }
 
     const guest = await Guest.create(data);
     return NextResponse.json(guest);
   } catch (error) {
-    return NextResponse.json({ message: error }, { status: 400 });
+    return NextResponse.json(
+      { message: error instanceof Error ? error.message : "Unknown error" },
+      { status: 400 }
+    );
   }
 }

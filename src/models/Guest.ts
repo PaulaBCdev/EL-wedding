@@ -16,7 +16,7 @@ const GuestSchema = new Schema<Guests>({
     required: true,
   },
   surname: { type: String, required: true },
-  contact: { type: Number, required: true },
+  contact: { type: Number, required: true, unique: true },
   attending: { type: Boolean, required: true },
   children: Number,
   allergies: String,
