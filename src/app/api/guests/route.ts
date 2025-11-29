@@ -1,7 +1,7 @@
 import dbConnect from "@/src/lib/dbConnect";
 import Guest from "@/src/models/Guest";
 import { NextRequest, NextResponse } from "next/server";
-import { NewGuestDTO } from "../../dto/new-guest.dto";
+import { NewGuestDTO } from "../dto/new-guest.dto";
 
 export async function GET() {
   try {

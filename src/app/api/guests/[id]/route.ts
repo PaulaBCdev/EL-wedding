@@ -1,4 +1,4 @@
-import { UpdateGuestDTO } from "@/src/app/dto/update-guest.dto";
+import { UpdateGuestDTO } from "@/src/app/api/dto/update-guest.dto";
 import dbConnect from "@/src/lib/dbConnect";
 import Guest from "@/src/models/Guest";
 import { NextRequest, NextResponse } from "next/server";
