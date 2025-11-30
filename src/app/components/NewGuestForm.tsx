@@ -1,7 +1,7 @@
 "use client";
 
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { NewGuestDTO } from "../api/dto/new-guest.dto";
 
 export default function NewGuestForm() {
@@ -105,10 +105,12 @@ export default function NewGuestForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
       {/* name input */}
-      <div>
-        <label htmlFor="name">Nombre</label>
+      <div className="flex flex-col">
+        <label htmlFor="name" className="font-catchy text-secondary text-2xl">
+          Nombre
+        </label>
         <input
           type="text"
           name="name"
@@ -117,12 +119,18 @@ export default function NewGuestForm() {
           minLength={3}
           maxLength={20}
           onChange={handleNameChange}
+          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal h-10 px-3"
         />
       </div>
 
       {/* surname input */}
-      <div>
-        <label htmlFor="surname">Apellidos</label>
+      <div className="flex flex-col">
+        <label
+          htmlFor="surname"
+          className="font-catchy text-secondary text-2xl"
+        >
+          Apellidos
+        </label>
         <input
           type="text"
           name="surname"
@@ -131,12 +139,18 @@ export default function NewGuestForm() {
           minLength={3}
           maxLength={50}
           onChange={handleSurnameChange}
+          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal h-10 px-3"
         />
       </div>
 
       {/* contact input */}
-      <div>
-        <label htmlFor="contact">Teléfono de contacto</label>
+      <div className="flex flex-col">
+        <label
+          htmlFor="contact"
+          className="font-catchy text-secondary text-2xl"
+        >
+          Teléfono de contacto
+        </label>
         <input
           type="number"
           name="contact"
@@ -145,25 +159,36 @@ export default function NewGuestForm() {
           minLength={3}
           maxLength={50}
           onChange={handleContactChange}
+          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal h-10 px-3"
         />
       </div>
 
       {/* attending & children inputs */}
-      <div>
+      <div className="flex flex-col md:flex-row gap-6">
         {/* attending dropdown */}
-        <div>
-          <label htmlFor="attending">¿Asistirás?</label>
-          <button type="button" onClick={toogleDropdown}>
+        <div className="flex flex-col">
+          <label
+            htmlFor="attending"
+            className="font-catchy text-secondary text-2xl"
+          >
+            ¿Asistirás?
+          </label>
+          <button
+            type="button"
+            onClick={toogleDropdown}
+            className="flex justify-between items-center font-albert text-secondary text-lg bg-primary/30 border-2 border-secondary rounded-sm h-10 px-3"
+          >
             {attendingDropdown === null
               ? "Selecciona"
               : attendingDropdown
               ? "Sí"
               : "No"}
-            <ChevronDown />
+
+            {dropdownIsOpen ? <ChevronUp /> : <ChevronDown />}
           </button>
 
           {dropdownIsOpen && (
-            <div>
+            <div className=" flex flex-col gap-1 my-2 right-0 top-20">
               {dropdownOptions.map((option, index) => (
                 <button
                   type="button"
@@ -172,6 +197,7 @@ export default function NewGuestForm() {
                     setAttendingDropdown(option.value);
                     setDropdownIsOpen(false);
                   }}
+                  className="flex font-albert text-background text-xl justify-center items-center bg-primary rounded-2xl h-7 px-16 py-6"
                 >
                   {option.label}
                 </button>
@@ -181,43 +207,62 @@ export default function NewGuestForm() {
         </div>
 
         {/* children input */}
-        <div>
-          <label htmlFor="children">¿Te acompañarán niños?</label>
+        <div className="flex flex-col">
+          <label
+            htmlFor="children"
+            className="font-catchy text-secondary text-2xl"
+          >
+            ¿Te acompañarán niños?
+          </label>
           <input
             type="number"
             name="children"
             id="children"
             placeholder="0"
             onChange={handleChildrenChange}
+            className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal h-10 px-3"
           />
         </div>
       </div>
 
       {/* allergies input */}
-      <div>
-        <label htmlFor="allergies">¿Alguna restricción alimentaria?</label>
+      <div className="flex flex-col">
+        <label
+          htmlFor="allergies"
+          className="font-catchy text-secondary text-2xl"
+        >
+          ¿Alguna restricción alimentaria?
+        </label>
         <textarea
           name="allergies"
           id="allergies"
           rows={4}
           placeholder="Dieta vegana, alergia al gluten..."
           onChange={handleAllergiesChange}
+          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal p-3"
         ></textarea>
       </div>
 
       {/* notes input */}
-      <div>
-        <label htmlFor="notes">¿Tienes alguna pregunta o comentario?</label>
+      <div className="flex flex-col">
+        <label htmlFor="notes" className="font-catchy text-secondary text-2xl">
+          ¿Tienes alguna pregunta o comentario?
+        </label>
         <textarea
           name="notes"
           id="notes"
           rows={4}
           onChange={handleNotesChange}
+          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal p-3"
         ></textarea>
       </div>
 
       {/* submit button */}
-      <button disabled={isDisabled} type="submit">
+      <button
+        disabled={isDisabled}
+        type="submit"
+        className="bg-secondary rounded-md font-catchy text-background text-3xl pb-4 pt-6 mt-28 mx-[100px]"
+      >
         {isLoading ? "Enviando..." : "Enviar"}
       </button>
     </form>
