@@ -1,15 +1,24 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Albert_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const breathing = localFont({
+  src: "../../public/fonts/Breathing.ttf",
+  variable: "--font-breathing",
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const catchy = localFont({
+  src: "../../public/fonts/CatchyMager.otf",
+  variable: "--font-catchy",
+  display: "swap",
+});
+
+const albertSans = Albert_Sans({
   subsets: ["latin"],
+  variable: "--font-albert",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -23,9 +32,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${catchy.variable} ${breathing.variable} ${albertSans.variable} antialiased`}
       >
         {children}
       </body>
