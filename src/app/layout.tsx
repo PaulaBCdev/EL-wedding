@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Albert_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import Footer from "./components/Footer";
 
 const breathing = localFont({
   src: "../../public/fonts/Breathing.ttf",
@@ -37,6 +38,7 @@ export default function RootLayout({
         className={`${catchy.variable} ${breathing.variable} ${albertSans.variable} antialiased`}
       >
         {children}
+        <Footer />
       </body>
     </html>
   );
