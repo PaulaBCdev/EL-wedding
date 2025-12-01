@@ -105,10 +105,16 @@ export default function NewGuestForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-6">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col w-full max-w-xl md:max-w-2xl lg:max-w-5xl px-16 gap-6"
+    >
       {/* name input */}
       <div className="flex flex-col">
-        <label htmlFor="name" className="font-catchy text-secondary text-2xl">
+        <label
+          htmlFor="name"
+          className="font-catchy text-secondary text-2xl lg:text-4xl"
+        >
           Nombre
         </label>
         <input
@@ -119,7 +125,7 @@ export default function NewGuestForm() {
           minLength={3}
           maxLength={20}
           onChange={handleNameChange}
-          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal h-10 px-3"
+          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl h-10 lg:h-14 px-3"
         />
       </div>
 
@@ -127,7 +133,7 @@ export default function NewGuestForm() {
       <div className="flex flex-col">
         <label
           htmlFor="surname"
-          className="font-catchy text-secondary text-2xl"
+          className="font-catchy text-secondary text-2xl lg:text-4xl"
         >
           Apellidos
         </label>
@@ -139,7 +145,7 @@ export default function NewGuestForm() {
           minLength={3}
           maxLength={50}
           onChange={handleSurnameChange}
-          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal h-10 px-3"
+          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl h-10 lg:h-14 px-3"
         />
       </div>
 
@@ -147,7 +153,7 @@ export default function NewGuestForm() {
       <div className="flex flex-col">
         <label
           htmlFor="contact"
-          className="font-catchy text-secondary text-2xl"
+          className="font-catchy text-secondary text-2xl lg:text-4xl"
         >
           Teléfono de contacto
         </label>
@@ -159,24 +165,24 @@ export default function NewGuestForm() {
           minLength={3}
           maxLength={50}
           onChange={handleContactChange}
-          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal h-10 px-3"
+          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl h-10 lg:h-14 px-3"
         />
       </div>
 
       {/* attending & children inputs */}
-      <div className="flex flex-col md:flex-row gap-6">
+      <div className="flex flex-col justify-between md:flex-row gap-6">
         {/* attending dropdown */}
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full">
           <label
             htmlFor="attending"
-            className="font-catchy text-secondary text-2xl"
+            className="font-catchy text-secondary text-2xl lg:text-4xl"
           >
             ¿Asistirás?
           </label>
           <button
             type="button"
             onClick={toogleDropdown}
-            className="flex justify-between items-center font-albert text-secondary text-lg bg-primary/30 border-2 border-secondary rounded-sm h-10 px-3"
+            className="flex justify-between items-center font-albert text-secondary lg:text-2xl text-lg bg-primary/30 border-2 border-secondary rounded-sm h-10 lg:h-14 px-3"
           >
             {attendingDropdown === null
               ? "Selecciona"
@@ -207,10 +213,10 @@ export default function NewGuestForm() {
         </div>
 
         {/* children input */}
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full">
           <label
             htmlFor="children"
-            className="font-catchy text-secondary text-2xl"
+            className="font-catchy text-secondary text-2xl lg:text-4xl"
           >
             ¿Te acompañarán niños?
           </label>
@@ -220,7 +226,7 @@ export default function NewGuestForm() {
             id="children"
             placeholder="0"
             onChange={handleChildrenChange}
-            className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal h-10 px-3"
+            className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl h-10 lg:h-14 px-3"
           />
         </div>
       </div>
@@ -229,7 +235,7 @@ export default function NewGuestForm() {
       <div className="flex flex-col">
         <label
           htmlFor="allergies"
-          className="font-catchy text-secondary text-2xl"
+          className="font-catchy text-secondary text-2xl lg:text-4xl"
         >
           ¿Alguna restricción alimentaria?
         </label>
@@ -239,13 +245,16 @@ export default function NewGuestForm() {
           rows={4}
           placeholder="Dieta vegana, alergia al gluten..."
           onChange={handleAllergiesChange}
-          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal p-3"
+          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl p-3"
         ></textarea>
       </div>
 
       {/* notes input */}
       <div className="flex flex-col">
-        <label htmlFor="notes" className="font-catchy text-secondary text-2xl">
+        <label
+          htmlFor="notes"
+          className="font-catchy text-secondary text-2xl lg:text-4xl"
+        >
           ¿Tienes alguna pregunta o comentario?
         </label>
         <textarea
@@ -253,7 +262,7 @@ export default function NewGuestForm() {
           id="notes"
           rows={4}
           onChange={handleNotesChange}
-          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal p-3"
+          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl p-3"
         ></textarea>
       </div>
 
@@ -261,7 +270,7 @@ export default function NewGuestForm() {
       <button
         disabled={isDisabled}
         type="submit"
-        className="bg-secondary rounded-md font-catchy text-background text-3xl pb-4 pt-6 mt-28 mx-[100px]"
+        className="bg-secondary rounded-md font-catchy text-background text-3xl lg:text-4xl pb-4 pt-6 mt-28 mx-[100px] md:mx-[150px] lg:mx-0 lg:ml-[700px]"
       >
         {isLoading ? "Enviando..." : "Enviar"}
       </button>
