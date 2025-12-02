@@ -1,13 +1,22 @@
 import Link from "next/link";
+import { ComponentProps } from "react";
 
-const Button = () => {
+interface ButtonProps extends ComponentProps<"button"> {
+  className?: string;
+}
+
+const Button = ({ className, ...props }: ButtonProps) => {
   return (
     <Link href="/form">
       <button
         type="button"
-        className="bg-secondary rounded-md font-albert text-background text-96 py-6 px-7 hover:bg-background hover:text-secondary hover:cursor-pointer"
+        className={
+          "bg-secondary rounded-md hover:bg-background hover:text-secondary hover:cursor-pointer" +
+          className
+        }
+        {...props}
       >
-        ConfirmaAsistencia
+        Confirmar asistencia
       </button>
     </Link>
   );
