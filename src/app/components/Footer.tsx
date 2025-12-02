@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="bg-secondary h-46 lg:h-64 overflow-hidden">
+    <footer className="bg-secondary h-46 lg:h-52 overflow-hidden">
       {/* Mobile & Tablet */}
       <div className="relative flex lg:hidden justify-center items-center h-full my-2 py-2">
         <Image
@@ -23,9 +23,9 @@ export default function Footer() {
           alt="lazo-blanco"
           width={98}
           height={568}
-          className="w-72"
+          className="w-64"
         />
-        <p className="font-breathing text-background text-4xl">
+        <p className="font-breathing text-background text-3xl">
           Esteban y Leire
         </p>
         <Image
@@ -33,7 +33,7 @@ export default function Footer() {
           alt="lazo-blanco"
           width={98}
           height={568}
-          className="scale-x-[-1] w-72"
+          className="scale-x-[-1] w-64"
         />
       </div>
     </footer>
