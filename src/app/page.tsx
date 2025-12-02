@@ -12,9 +12,9 @@ export default function Home() {
             <p className="font-catchy text-background text-3xl md:text-4xl">
               — 20.02.2026 —
             </p>
-            <p className="font-breathing text-background text-5xl md:text-7xl text-center leading-24">
+            <h1 className="font-breathing text-background text-5xl md:text-7xl text-center leading-24">
               Esteban y Leire
-            </p>
+            </h1>
             <p className="font-catchy text-background text-3xl md:text-4xl">
               ¡Nos casamos!
             </p>
@@ -44,9 +44,9 @@ export default function Home() {
             <p className="font-catchy text-background text-4xl">
               — 20.02.2026 —
             </p>
-            <p className="font-breathing text-background text-8xl text-center leading-24">
+            <h1 className="font-breathing text-background text-8xl text-center leading-24">
               Esteban y Leire
-            </p>
+            </h1>
             <p className="font-catchy text-background text-4xl">
               ¡Nos casamos!
             </p>
@@ -77,8 +77,47 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
-        <div className="flex justify-center items-center lg:hidden bg-background w-full h-[800px] z-20"></div>
+      {/* BLOQUE 2 */}
+      {/* Mobile & Tablet */}
+      <section className="relative overflow-hidden flex justify-center items-center lg:hidden bg-background w-full h-[956px]">
+        <div className="flex flex-col justify-center items-center gap-16">
+          <div className="flex flex-col justify-center items-center lg:hidden mx-8 gap-14 z-10">
+            <p className="font-catchy text-secondary text-4xl text-center px-16">
+              Nos complace invitarte a celebrar nuestro matrimonio con nosotros
+            </p>
+            <div className="flex justify-center items-center gap-6">
+              <div className="flex flex-col justify-center items-center pb-4">
+                <hr className="bg-secondary w-32 h-0.5" />
+                <p className="font-catchy text-secondary text-2xl mt-1">
+                  Febrero
+                </p>
+                <hr className="bg-secondary w-32 h-0.5" />
+              </div>
+
+              <p className="font-catchy text-secondary text-6xl">20</p>
+
+              <div className="flex flex-col justify-center items-center pb-4">
+                <hr className="bg-secondary w-32 h-0.5" />
+                <p className="font-catchy text-secondary text-2xl mt-1">
+                  18 hrs.
+                </p>
+                <hr className="bg-secondary w-32 h-0.5" />
+              </div>
+            </div>
+            <p className="font-catchy text-secondary text-2xl text-center px-16">
+              Hemos preparado una ceremonia íntima por la tarde, seguida de un
+              cóctel y una cena en compañía de nuestros seres queridos. No hay
+              código de vestimenta; solo ten en cuenta el frío de febrero.
+            </p>
+          </div>
+          <Image
+            src="/lazo-azul-claro.svg"
+            alt="lazo-azul-claro"
+            width={98}
+            height={568}
+            className="w-5xl"
+          />
+        </div>
       </section>
     </main>
   );
