@@ -4,12 +4,14 @@
   --background: #f5f5f5;
   --primary-color: #647890;
   --secondary-color: #31496a;
+  --secondary-light-color: rgb(63, 95, 139);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-primary: var(--primary-color);
   --color-secondary: var(--secondary-color);
+  --color-secondary-light: var(--secondary-light-color);
   --font-albert: var(--font-albert);
   --font-breathing: var(--font-breathing);
   --font-catchy: var(--font-catchy);

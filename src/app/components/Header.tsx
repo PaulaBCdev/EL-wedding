@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Button from "./ui/Button";
 
 export default function Header() {
@@ -10,10 +11,12 @@ export default function Header() {
 
       {/* Desktop */}
       <div className="hidden lg:flex justify-between items-center h-full mx-24">
-        <a href="" className="font-albert text-background text-96 pr-14">
+        <Link href="" className="font-albert text-background text-96 pr-14">
           Cuándo y dónde
-        </a>
-        <p className="font-breathing text-background text-3xl">E & L</p>
+        </Link>
+        <Link href="/" className="font-breathing text-background text-3xl">
+          E & L
+        </Link>
         <Button />
       </div>
     </header>
