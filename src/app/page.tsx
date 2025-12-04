@@ -173,6 +173,45 @@ export default function Home() {
           />
         </div>
       </section>
+
+      {/* BLOQUE 3
+      PARTE 1 */}
+      {/* Mobil & Tablet */}
+      <section className="flex justify-center items-center lg:hidden bg-primary w-full h-[1214px]">
+        <div>
+          <div className="flex flex-col justify-center items-center gap-12">
+            <p className="font-albert text-secondary text-2xl">Cuándo</p>
+            <p className="font-catchy text-background text-4xl text-center">
+              Viernes 20 de febrero de 2026
+            </p>
+          </div>
+
+          {/* timeline */}
+          <div className="container">
+            <div className="grid grid-cols-9 mx-auto p-2 text-secondary">
+              {/* left */}
+              <div className="contents">
+                <div className="bg-secondary col-start-1 col-end-4 p-3 rounded-xl my-4 ml-auto shadow-md">
+                  <p className="font-catchy text-background text-lg text-center">
+                    Recepción de invitados
+                  </p>
+                  <p className="font-catchy text-background text-lg text-center">
+                    18:00
+                  </p>
+                </div>
+                <div className="col-start-5 col-end-6 md:mx-auto relative mr-10">
+                  <div className="h-full w-6 flex items-center justify-center">
+                    <div className="h-full w-1 bg-secondary pointer-events-none"></div>
+                  </div>
+                  <div className="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-secondary shadow"></div>
+                </div>
+              </div>
+
+              {/* right */}
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   );
 }
