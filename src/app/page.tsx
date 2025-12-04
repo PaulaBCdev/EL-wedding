@@ -80,10 +80,20 @@ export default function Home() {
       {/* BLOQUE 2 */}
       {/* Mobile & Tablet */}
       <section className="relative overflow-hidden flex justify-center items-center lg:hidden bg-background w-full h-[956px]">
-        <div className="flex flex-col justify-center items-center gap-16">
-          <div className="flex flex-col justify-center items-center lg:hidden mx-8 gap-14 z-10">
+        <div className="absolute inset-0 flex justify-center items-center z-0">
+          <div className="relative w-[110%] max-w-[600px] h-full scale-110 translate-x-5   translate-y-[330px] md:scale-110 md:translate-x-0 md:translate-y-[250px]">
+            <Image
+              src="/lazo-azul-claro.svg"
+              alt="lazo-azul-claro"
+              fill
+              className="object-contain"
+            />
+          </div>
+        </div>
+        <div className=" relative z-10 flex flex-col justify-center items-center gap-16">
+          <div className="flex flex-col justify-center items-center mx-8 mb-52 md:mb-60 gap-14 z-10">
             <p className="font-catchy text-secondary text-4xl text-center px-16">
-              Nos complace invitarte a celebrar nuestro matrimonio con nosotros
+              Nos complace invitarte a celebrar nuestro matrimonio con nosotros.
             </p>
             <div className="flex justify-center items-center gap-6">
               <div className="flex flex-col justify-center items-center pb-4">
@@ -110,12 +120,56 @@ export default function Home() {
               código de vestimenta; solo ten en cuenta el frío de febrero.
             </p>
           </div>
+        </div>
+      </section>
+      {/* Desktop */}
+      <section className="relative overflow-hidden hidden lg:flex justify-center items-center bg-background w-full h-1/4">
+        <div className="flex flex-col justify-center items-center my-44 max-w-[950px] gap-32 z-10">
+          <p className="font-catchy text-6xl text-secondary text-center">
+            Nos complace invitarte a celebrar nuestro matrimonio con nosotros.
+          </p>
+
+          <div className="flex justify-center items-center gap-6">
+            <div className="flex flex-col justify-center items-center pb-4">
+              <hr className="bg-secondary w-44 h-0.5" />
+              <p className="font-catchy text-secondary text-4xl mt-1">
+                Febrero
+              </p>
+              <hr className="bg-secondary w-44 h-0.5" />
+            </div>
+
+            <p className="font-catchy text-secondary text-8xl">20</p>
+
+            <div className="flex flex-col justify-center items-center pb-4">
+              <hr className="bg-secondary w-44 h-0.5" />
+              <p className="font-catchy text-secondary text-4xl mt-1">
+                18 hrs.
+              </p>
+              <hr className="bg-secondary w-44 h-0.5" />
+            </div>
+          </div>
+
+          <p className="font-catchy text-3xl text-secondary text-center mx-9">
+            Hemos preparado una ceremonia íntima por la tarde, seguida de un
+            cóctel y una cena en compañía de nuestros seres queridos. No hay
+            código de vestimenta; solo ten en cuenta el frío de febrero.
+          </p>
+        </div>
+
+        <div>
           <Image
-            src="/lazo-azul-claro.svg"
-            alt="lazo-azul-claro"
-            width={98}
-            height={568}
-            className="w-5xl"
+            src="/flor.svg"
+            alt="flor"
+            width={908}
+            height={1280}
+            className="absolute opacity-70 z-0 w-[500px] scale-x-[-1] rotate-35 -bottom-[260px] -left-20"
+          />
+          <Image
+            src="/flor.svg"
+            alt="flor"
+            width={908}
+            height={1280}
+            className="absolute opacity-70 z-0 w-[500px] scale-x-[-1] -rotate-145 -top-34 -right-32"
           />
         </div>
       </section>
