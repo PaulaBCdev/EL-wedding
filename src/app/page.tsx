@@ -174,10 +174,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* BLOQUE 3
-      PARTE 1 */}
+      {/* BLOQUE 3*/}
       {/* Mobil & Tablet */}
-      <section className="flex justify-center items-center lg:hidden bg-primary w-full h-[1214px]">
+      {/* PARTE 1 */}
+      <section className="flex justify-center items-center lg:hidden bg-primary w-full h-[968px]">
         <div className="flex flex-col gap-22 mx-20">
           <div className="flex flex-col justify-center items-center gap-12">
             <p className="font-albert text-secondary text-2xl">Cuándo</p>
@@ -236,6 +236,46 @@ export default function Home() {
               <hr className="bg-secondary/50" />
             </li>
           </ul>
+        </div>
+      </section>
+
+      {/*  PARTE 2 */}
+      <section className="relative flex justify-center items-center lg:hidden bg-[url('/hotel-boda.jpg')] bg-cover bg-center w-full h-[868px]">
+        {/* blue filter */}
+        <div className="absolute h-full w-full bg-primary/60 z-0"></div>
+
+        {/* content */}
+        <div className="flex flex-col justify-center items-center bg-primary/70 h-1/2 w-6/8 z-10 gap-12">
+          <p className="font-albert font-medium text-secondary text-2xl">
+            Dónde
+          </p>
+          <div className="flex flex-col justify-center items-center px-8 gap-8">
+            <div>
+              <p className="font-catchy text-background text-4xl px-5 text-center">
+                Hotel
+              </p>
+              <p className="font-catchy text-background text-4xl px-5 text-center">
+                Cortijo Chico
+              </p>
+            </div>
+
+            <div>
+              <p className="font-catchy text-background text-2xl text-center">
+                Avenida de las Américas s/n
+              </p>
+              <p className="font-catchy text-background text-2xl text-center">
+                Alhaurín de la Torre
+              </p>
+            </div>
+
+            <a
+              href="https://hotelcortijochico.com/"
+              target="_blank"
+              className="underline font-albert font-medium text-secondary visited:text-secondary"
+            >
+              Más acerca del lugar +
+            </a>
+          </div>
         </div>
       </section>
 

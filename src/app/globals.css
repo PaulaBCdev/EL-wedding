@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @plugin "flyonui" {
-  include: timeline;
+  include: timeline, link;
 }
 
 :root {
