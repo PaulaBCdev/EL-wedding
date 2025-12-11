@@ -187,84 +187,123 @@ export default function Home() {
           </div>
 
           {/* timeline */}
-          <div className="container px-16">
-            <div className="flex flex-col md:grid grid-cols-9 mx-auto p-2 text-background">
-              {/* <!-- left --> */}
-              <div className="flex flex-row-reverse md:contents">
-                <div className="bg-secondary col-start-1 col-end-5 p-4 rounded-xl my-4 md:ml-auto ml-0 mr-auto shadow-md mb-10">
-                  <h3 className="font-catchy text-xl text-center">
-                    Recepción de invitados
-                  </h3>
-                  <p className="text-center text-lg font-catchy">18:00</p>
-                </div>
-                <div className="col-start-5 col-end-6 md:mx-auto relative mr-10">
-                  <div className="h-full w-6 flex items-center justify-center">
-                    <div className="h-full w-1 bg-secondary pointer-events-none"></div>
-                  </div>
-                  <div className="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-secondary shadow"></div>
-                </div>
+          <ul className="timeline timeline-vertical">
+            <li>
+              <hr className="bg-secondary/50" />
+              <div className="timeline-middle">
+                <span className="bg-secondary flex size-4.5 items-center justify-center rounded-full"></span>
               </div>
-              {/* <!-- right --> */}
-              <div className="flex md:contents">
-                <div className="col-start-5 col-end-6 mr-10 md:mx-auto relative">
-                  <div className="h-full w-6 flex items-center justify-center">
-                    <div className="h-full w-1 bg-secondary pointer-events-none"></div>
-                  </div>
-                  <div className="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-secondary shadow"></div>
-                </div>
-                <div className="bg-secondary col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto shadow-md mb-10">
-                  <h3 className="font-catchy text-xl text-center">Ceremonia</h3>
-                  <p className="font-catchy text-lg text-center">18:30</p>
-                </div>
+              <div className="timeline-start font-catchy text-background text-xl text-center py-4 px-4">
+                <p>Recepción de invitados</p>
+                <p>18:00</p>
               </div>
-              {/* <!-- left --> */}
-              <div className="flex flex-row-reverse md:contents">
-                <div className="bg-secondary col-start-1 col-end-5 p-4 rounded-xl my-4 md:ml-auto ml-0 mr-auto shadow-md mb-10">
-                  <h3 className="font-catchy text-xl text-center">
-                    Cocktail de bienvenida
-                  </h3>
-                  <p className="font-catchy text-lg text-center">19:30</p>
-                </div>
-                <div className="col-start-5 col-end-6 md:mx-auto relative mr-10">
-                  <div className="h-full w-6 flex items-center justify-center">
-                    <div className="h-full w-1 bg-secondary pointer-events-none"></div>
-                  </div>
-                  <div className="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-secondary shadow"></div>
-                </div>
+              <hr className="bg-secondary/50" />
+            </li>
+
+            <li>
+              <hr className="bg-secondary/50" />
+              <div className="timeline-middle">
+                <span className="bg-secondary flex size-4.5 items-center justify-center rounded-full"></span>
               </div>
-              {/* <!-- right --> */}
-              <div className="flex md:contents">
-                <div className="col-start-5 col-end-6 mr-10 md:mx-auto relative">
-                  <div className="h-full w-6 flex items-center justify-center">
-                    <div className="h-full w-1 bg-secondary pointer-events-none"></div>
-                  </div>
-                  <div className="w-6 h-6 absolute top-1/2 -mt-3 rounded-full bg-secondary shadow"></div>
-                </div>
-                <div className="bg-secondary col-start-6 col-end-10 p-4 rounded-xl my-4 mr-auto shadow-md mb-10">
-                  <h3 className="font-catchy text-xl text-center">
-                    Cena en salón
-                  </h3>
-                  <p className="font-catchy text-lg text-center">21:00</p>
-                </div>
+              <div className="timeline-end font-catchy text-background text-xl text-center py-4 px-4">
+                <p>Ceremonia</p>
+                <p>18:30</p>
               </div>
-            </div>
-          </div>
+              <hr className="bg-secondary/50" />
+            </li>
+
+            <li>
+              <hr className="bg-secondary/50" />
+              <div className="timeline-middle">
+                <span className="bg-secondary flex size-4.5 items-center justify-center rounded-full"></span>
+              </div>
+              <div className="timeline-start font-catchy text-background text-xl text-center py-4 px-4">
+                <p>Cocktail de bienvenida</p>
+                <p>19:30</p>
+              </div>
+              <hr className="bg-secondary/50" />
+            </li>
+
+            <li>
+              <hr className="bg-secondary/50" />
+              <div className="timeline-middle">
+                <span className="bg-secondary flex size-4.5 items-center justify-center rounded-full"></span>
+              </div>
+              <div className="timeline-end font-catchy text-background text-xl text-center px-4">
+                <p>Cena en salón</p>
+                <p>21:00</p>
+              </div>
+              <hr className="bg-secondary/50" />
+            </li>
+          </ul>
         </div>
       </section>
 
       {/* Desktop */}
-      {/* Mobil & Tablet */}
       <section>
         <article className="relative overflow-hidden hidden lg:flex justify-center items-center bg-primary w-full h-[1214px]">
-          <div className="flex flex-col gap-22 mx-20">
+          <div className="flex flex-col gap-40 mx-20">
             <div className="flex flex-col justify-center items-center gap-12">
               <p className="font-albert text-secondary text-2xl">Cuándo</p>
-              <p className="font-catchy text-background text-4xl text-center">
+              <p className="font-catchy text-background text-6xl text-center">
                 Viernes 20 de febrero de 2026
               </p>
             </div>
 
             {/* timeline */}
+            <ul className="timeline overflow-x-auto">
+              {/* up */}
+              <li>
+                <hr className="bg-secondary/50" />
+                <div className="timeline-start text-center font-catchy text-background text-2xl">
+                  <p>Recepción de invitados</p>
+                  <p>18:00</p>
+                </div>
+                <div className="timeline-middle">
+                  <span className="bg-secondary flex size-4.5 items-center justify-center rounded-full"></span>
+                </div>
+                <hr className="bg-secondary/50" />
+              </li>
+
+              {/* down */}
+              <li>
+                <hr className="bg-secondary/50" />
+                <div className="timeline-middle">
+                  <span className="bg-secondary flex size-4.5 items-center justify-center rounded-full"></span>
+                </div>
+                <div className="timeline-end text-center font-catchy text-background text-2xl">
+                  <p>Ceremonia</p>
+                  <p>18:30</p>
+                </div>
+                <hr className="bg-secondary/50" />
+              </li>
+
+              {/* up */}
+              <li>
+                <hr className="bg-secondary/50" />
+                <div className="timeline-start font-catchy text-center text-background text-2xl">
+                  <p>Cocktail de bienvenida</p>
+                  <p>19:30</p>
+                </div>
+                <div className="timeline-middle">
+                  <span className="bg-secondary flex size-4.5 items-center justify-center rounded-full"></span>
+                </div>
+                <hr className="bg-secondary/50" />
+              </li>
+
+              {/* down */}
+              <li>
+                <hr className="bg-secondary/50" />
+                <div className="timeline-middle">
+                  <span className="bg-secondary flex size-4.5 items-center justify-center rounded-full"></span>
+                </div>
+                <div className="timeline-end font-catchy text-center text-background text-2xl">
+                  <p>Cena en salón</p>
+                  <p>21:00</p>
+                </div>
+                <hr className="bg-secondary/50" />
+              </li>
+            </ul>
           </div>
         </article>
       </section>
