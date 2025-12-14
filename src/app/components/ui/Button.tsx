@@ -11,7 +11,7 @@ const Button = ({ className, ...props }: ButtonProps) => {
       <button
         type="button"
         className={
-          "bg-secondary rounded-md hover:bg-background hover:text-secondary hover:cursor-pointer" +
+          "bg-secondary rounded-md hover:bg-background hover:text-secondary cursor-pointer " +
           className
         }
         {...props}
