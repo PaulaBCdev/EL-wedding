@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import NewGuestForm from "../components/NewGuestForm";
 import HeaderForm from "../components/HeaderForm";

@@ -39,6 +39,8 @@ export default function RootLayout({
       >
         {children}
         <Footer />
+
+        <script src="../../node_modules/flyonui/flyonui.js"></script>
       </body>
     </html>
   );

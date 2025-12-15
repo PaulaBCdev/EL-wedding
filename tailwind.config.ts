@@ -1,12 +1,16 @@
 import type { Config } from "tailwindcss";
+const flyonui = require("flyonui");
 
-const config: Config = {
-  content: ["./app/**/*.{js,ts,jsx,tsx}", "./components/**/*.{js,ts,jsx,tsx}"],
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/app/**/*.{js,ts,jsx,tsx}",
+    "./src/app/components/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
   darkMode: false,
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [flyonui],
 };
-
-export default config;

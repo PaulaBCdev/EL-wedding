@@ -1,8 +1,11 @@
 @import "tailwindcss";
 
 @plugin "flyonui" {
-  include: timeline, link;
+  include: timeline, link, table;
 }
+@import "../../node_modules//flyonui/variants.css";
+@source "../../node_modules/flyonui/dist/index.js";
+@plugin "@iconify/tailwind4";
 
 :root {
   --background: #f5f5f5;
