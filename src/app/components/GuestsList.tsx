@@ -79,7 +79,7 @@ export default function GuestsList({ guests }: GuestsListProps) {
       </div>
       <div>
         {guests.length === 0 ? (
-          <p className="font-catchy text-secondary text-xl">
+          <p className="font-catchy text-secondary text-xl text-center">
             Todavía no tenéis invitados confirmados
           </p>
         ) : (

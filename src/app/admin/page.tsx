@@ -4,6 +4,7 @@ import Image from "next/image";
 import HeaderForm from "../components/HeaderForm";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+import HeaderAdmin from "../components/HeaderAdmin";
 
 export default function AdminAccess() {
   const [password, setPassword] = useState("");
@@ -37,7 +38,7 @@ export default function AdminAccess() {
 
   return (
     <>
-      <HeaderForm />
+      <HeaderAdmin />
       <div className="relative overflow-hidden flex items-center justify-center bg-background ">
         <div className="max-w-md w-full px-6 my-44 z-10">
           <h1 className="font-catchy text-4xl text-secondary text-center mb-8">
