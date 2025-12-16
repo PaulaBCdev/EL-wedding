@@ -10,6 +10,13 @@ export async function DELETE(
   try {
     const { id } = await params;
 
+    console.log("ID recibido:", id); // Añade este log
+
+    // Verifica que el ID sea válido para MongoDB
+    if (!id || id === "undefined") {
+      return NextResponse.json({ message: "ID inválido" }, { status: 400 });
+    }
+
     await dbConnect();
 
     const guest = await Guest.findById(id);

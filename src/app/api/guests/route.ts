@@ -8,7 +8,18 @@ export async function GET() {
     await dbConnect();
     const guests = await Guest.find({});
 
-    return NextResponse.json({ data: guests });
+    const mappedGuests = guests.map((guest) => ({
+      id: guest._id.toString(),
+      name: guest.name,
+      surname: guest.surname,
+      contact: guest.contact,
+      attending: guest.attending,
+      children: guest.children,
+      allergies: guest.allergies,
+      notes: guest.notes,
+    }));
+
+    return NextResponse.json({ data: mappedGuests });
   } catch (error) {
     return NextResponse.json({ error });
   }
