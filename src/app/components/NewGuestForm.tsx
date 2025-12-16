@@ -4,6 +4,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { NewGuestDTO } from "../api/dto/new-guest.dto";
 import { useRouter } from "next/navigation";
+import { toast } from "../utils/toast";
 
 export default function NewGuestForm() {
   const [mounted, setMounted] = useState<boolean>(false);
@@ -97,12 +98,14 @@ export default function NewGuestForm() {
         throw new Error(errorData.message);
       }
       await res.json();
-      router.push("/");
+      toast.success("Tu asistencia se ha confirmado");
+
+      setTimeout(function () {
+        router.push("/");
+      }, 2000);
     } catch (error) {
       console.error(error);
-      alert(
-        error instanceof Error ? error.message : "Error al enviar el formulario"
-      );
+      toast.error("Error al confirmar tu asistencia");
     } finally {
       setIsLoading(false);
     }

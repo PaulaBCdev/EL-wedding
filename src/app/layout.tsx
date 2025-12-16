@@ -3,6 +3,7 @@ import { Albert_Sans } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "./components/Footer";
+import { Toaster } from "sonner";
 
 const breathing = localFont({
   src: "../../public/fonts/Breathing.ttf",
@@ -37,6 +38,7 @@ export default function RootLayout({
       <body
         className={`${catchy.variable} ${breathing.variable} ${albertSans.variable} antialiased`}
       >
+        <Toaster position="top-right" />
         {children}
         <Footer />
 
