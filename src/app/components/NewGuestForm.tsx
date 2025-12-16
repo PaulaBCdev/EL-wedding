@@ -3,6 +3,7 @@
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { NewGuestDTO } from "../api/dto/new-guest.dto";
+import { useRouter } from "next/navigation";
 
 export default function NewGuestForm() {
   const [mounted, setMounted] = useState<boolean>(false);
@@ -17,6 +18,8 @@ export default function NewGuestForm() {
   const [allergiesInput, setAllergiesInput] = useState<string>("");
   const [notesInput, setNotesInput] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  const router = useRouter();
 
   const dropdownOptions = [
     { label: "Sí", value: true },
@@ -94,6 +97,7 @@ export default function NewGuestForm() {
         throw new Error(errorData.message);
       }
       await res.json();
+      router.push("/");
     } catch (error) {
       console.error(error);
       alert(
