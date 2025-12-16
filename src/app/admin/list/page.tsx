@@ -1,6 +1,6 @@
-import { GuestResponse } from "../api/dto/guest.dto";
-import GuestsList from "../components/GuestsList";
-import HeaderForm from "../components/HeaderForm";
+import { GuestResponse } from "../../api/dto/guest.dto";
+import GuestsList from "../../components/GuestsList";
+import HeaderForm from "../../components/HeaderForm";
 
 interface GuestsApiResponse {
   data: GuestResponse[];
