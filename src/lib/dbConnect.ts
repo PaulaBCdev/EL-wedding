@@ -10,7 +10,7 @@ if (!cached) {
 }
 
 async function dbConnect() {
-  const MONGO_URI = process.env.MONGO_URI!;
+  const MONGO_URI = process.env.STORAGE_MONGODB_URI!;
 
   if (!MONGO_URI) {
     throw new Error(
