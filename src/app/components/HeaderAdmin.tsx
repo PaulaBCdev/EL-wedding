@@ -1,7 +1,15 @@
 import Link from "next/link";
 import Button from "./ui/Button";
+import { useRouter } from "next/navigation";
 
-export default function HeaderAdmin() {
+export default function HeaderAdmin({ showLogout }: { showLogout?: boolean }) {
+  const router = useRouter();
+  const logout = async () => {
+    await fetch("/api/auth", {
+      method: "DELETE",
+    });
+    router.push("/admin");
+  };
   return (
     <header className="bg-primary w-full h-32 lg:h-40">
       {/* Mobile & Tablet */}
@@ -13,6 +21,9 @@ export default function HeaderAdmin() {
         >
           E & L
         </Link>
+        <button className="text-background z-50" onClick={logout}>
+          Cerrar sesión
+        </button>
       </div>
 
       {/* Desktop */}
@@ -20,6 +31,9 @@ export default function HeaderAdmin() {
         <Link href="/" className="font-breathing text-background text-4xl">
           E & L
         </Link>
+        <button className="text-background z-50" onClick={logout}>
+          Cerrar sesión
+        </button>
       </div>
     </header>
   );

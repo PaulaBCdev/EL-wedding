@@ -12,22 +12,11 @@ interface GuestsApiResponse {
 }
 
 export default function GuestsListPage() {
-  const [isAuthorized, setIsAuthorized] = useState(false);
   const [guests, setGuests] = useState<GuestResponse[]>([]);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
-    // Verify access
-    const hasAccess = sessionStorage.getItem("adminAccess");
-
-    if (!hasAccess) {
-      router.push("/admin");
-      return;
-    }
-
-    setIsAuthorized(true);
-
     //Fetch guests
     const fetchGuests = async () => {
       try {

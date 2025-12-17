@@ -36,6 +36,7 @@ export default function AdminAccess() {
 
       if (!data.status) {
         setError("Contraseña incorrecta");
+        return;
       }
 
       router.push("/admin/list");
