@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import HeaderForm from "../components/HeaderForm";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import HeaderAdmin from "../components/HeaderAdmin";
+import bcrypt from "bcrypt";
 
 export default function AdminAccess() {
   const [password, setPassword] = useState("");
@@ -18,20 +18,14 @@ export default function AdminAccess() {
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setIsLoading(true);
 
-    const correctPassword = "300820";
-
-    if (password === correctPassword) {
-      sessionStorage.setItem("adminAccess", "true");
-      router.push("/admin/list");
-    } else {
-      setError("Contraseña incorrecta");
-      setPassword("");
-    }
+    const hashedPsw = await fetch("/api/auth", {
+      method: "POST",
+    });
 
     setIsLoading(false);
   };
