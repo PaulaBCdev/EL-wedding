@@ -1,4 +1,3 @@
-export type PasswordResponse = {
-  id: number;
+export type PasswordDTO = {
   psw: string;
 };

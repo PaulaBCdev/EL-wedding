@@ -4,18 +4,18 @@ import Image from "next/image";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
 import HeaderAdmin from "../components/HeaderAdmin";
-import bcrypt from "bcrypt";
+import { PasswordDTO } from "../api/dto/auth.dto";
 
 export default function AdminAccess() {
-  const [password, setPassword] = useState("");
+  const [passwordImput, setPasswordImput] = useState("");
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
-  const isDisabled = !password;
+  const isDisabled = !passwordImput;
 
   const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
+    setPasswordImput(e.target.value);
   };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -23,11 +23,27 @@ export default function AdminAccess() {
 
     setIsLoading(true);
 
-    const hashedPsw = await fetch("/api/auth", {
-      method: "POST",
-    });
+    try {
+      const passwordData: PasswordDTO = {
+        psw: passwordImput,
+      };
 
-    setIsLoading(false);
+      const res = await fetch("/api/auth", {
+        method: "POST",
+        body: JSON.stringify(passwordData),
+      });
+      const data = await res.json();
+
+      if (!data.status) {
+        setError("Contraseña incorrecta");
+      }
+
+      router.push("/admin/list");
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -54,7 +70,7 @@ export default function AdminAccess() {
                 type="password"
                 name="password"
                 id="password"
-                value={password}
+                value={passwordImput}
                 onChange={handlePasswordChange}
                 placeholder="Introduce la contraseña"
                 className="w-full px-4 py-3 rounded-md border border-secondary focus:outline-none focus:ring-1 focus:ring-secondary"
@@ -62,7 +78,9 @@ export default function AdminAccess() {
             </div>
 
             {error && (
-              <p className="text-red-500 font-albert text-sm">{error}</p>
+              <p className="text-red-500 font-albert text-sm absolute">
+                {error}
+              </p>
             )}
 
             <button

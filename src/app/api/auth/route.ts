@@ -1,7 +1,6 @@
 import dbConnect from "@/src/lib/dbConnect";
 import Password from "@/src/models/Psw";
 import { NextRequest, NextResponse } from "next/server";
-import { PasswordResponse } from "../dto/auth.dto";
 import bcrypt from "bcrypt";
 
 export async function POST(req: NextRequest) {
@@ -13,9 +12,10 @@ export async function POST(req: NextRequest) {
     const hashedPassword = dbPassword.psw;
 
     const isPasswordCorrect = await bcrypt.compare(
-      requestBody.password,
+      requestBody.psw,
       hashedPassword
     );
+    console.log(requestBody);
 
     if (isPasswordCorrect) {
       return NextResponse.json({ status: true });
