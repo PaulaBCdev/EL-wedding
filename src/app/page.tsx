@@ -84,7 +84,7 @@ export default function Home() {
         {/* Mobile & Tablet */}
         <section className="relative overflow-hidden flex justify-center items-center lg:hidden bg-background w-full h-[956px]">
           <div className="absolute inset-0 flex justify-center items-center z-0">
-            <div className="relative w-[110%] max-w-[600px] h-full scale-110 translate-x-0   translate-y-[330px]">
+            <div className="relative w-[110%] max-w-[600px] h-full scale-110 translate-x-0 translate-y-[360px]">
               <Image
                 src="/lazo-azul-claro.svg"
                 alt="lazo-azul-claro"
@@ -93,7 +93,7 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className=" relative z-10 flex flex-col justify-center items-center gap-16">
+          <div className=" relative z-10 flex flex-col justify-center items-center gap-16 mt-20">
             <div className="flex flex-col justify-center items-center mx-8 mb-52  gap-14 z-10 max-w-[440px]">
               <p className="font-catchy text-secondary text-4xl text-center px-16">
                 Nos complace invitarte a celebrar nuestro matrimonio con
