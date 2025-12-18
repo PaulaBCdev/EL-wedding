@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Footer from "./components/Footer";
 import { Toaster } from "sonner";
+import Head from "next/head";
 
 const breathing = localFont({
   src: "../../public/fonts/Breathing.ttf",
