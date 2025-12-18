@@ -12,28 +12,25 @@ export default function HeaderAdmin({ showLogout }: { showLogout?: boolean }) {
   };
   return (
     <header className="bg-primary w-full h-32 lg:h-40">
-      {/* Mobile & Tablet */}
-      <div className="flex lg:hidden justify-center items-center h-full">
-        <Link
-          href="/"
-          target="_blank"
-          className="font-breathing text-background text-3xl"
-        >
-          E & L
-        </Link>
-        <button className="text-background z-50" onClick={logout}>
-          Cerrar sesión
-        </button>
-      </div>
-
-      {/* Desktop */}
-      <div className="hidden lg:flex justify-center items-center h-full mx-24">
-        <Link href="/" className="font-breathing text-background text-4xl">
-          E & L
-        </Link>
-        <button className="text-background z-50" onClick={logout}>
-          Cerrar sesión
-        </button>
+      <div className="flex justify-center items-center h-full p-10">
+        <div className="w-1/3"></div>
+        <div className="w-1/3 flex justify-center">
+          <Link
+            href="/"
+            target="_blank"
+            className="font-breathing text-background text-3xl"
+          >
+            E & L
+          </Link>
+        </div>
+        <div className="w-1/3 flex justify-end">
+          <button
+            className="bg-secondary rounded-md hover:bg-background hover:text-secondary cursor-pointer font-albert font-medium text-background text-96 py-3 px-5"
+            onClick={logout}
+          >
+            Cerrar sesión
+          </button>
+        </div>
       </div>
     </header>
   );

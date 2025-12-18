@@ -72,7 +72,7 @@ export default function GuestsList({ guests }: GuestsListProps) {
         <button
           onClick={handleDownloadExcel}
           type="button"
-          className="bg-secondary rounded-md hover:bg-background hover:text-secondary cursor-pointer font-albert font-medium text-background text-sm lg:text-lg py-3 px-6"
+          className="bg-secondary rounded-md hover:bg-background border border-secondary hover:text-secondary cursor-pointer font-albert font-medium text-background text-sm lg:text-lg py-3 px-6"
         >
           Descargar
         </button>
