@@ -278,7 +278,7 @@ export default function Home() {
               <a
                 href="https://hotelcortijochico.com/"
                 target="_blank"
-                className="underline font-albert font-medium text-secondary visited:text-secondary"
+                className="underline font-albert font-medium text-secondary visited:text-secondary hover:text-secondary-light"
               >
                 Más acerca del lugar +
               </a>
@@ -403,7 +403,7 @@ export default function Home() {
                 <a
                   href="https://hotelcortijochico.com/"
                   target="_blank"
-                  className="underline font-albert font-medium text-secondary text-2xl visited:text-secondary"
+                  className="underline font-albert font-medium text-secondary text-2xl visited:text-secondary hover:text-secondary-light"
                 >
                   Más acerca del lugar +
                 </a>

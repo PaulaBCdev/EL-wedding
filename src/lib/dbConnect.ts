@@ -11,6 +11,7 @@ if (!cached) {
 
 async function dbConnect() {
   const MONGO_URI = process.env.MONGODB_URI!;
+  console.log(MONGO_URI);
 
   if (!MONGO_URI) {
     throw new Error(

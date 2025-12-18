@@ -189,7 +189,7 @@ export default function NewGuestForm() {
           <button
             type="button"
             onClick={toogleDropdown}
-            className="flex justify-between items-center font-albert text-secondary lg:text-2xl text-lg bg-primary/30 border-2 border-secondary rounded-sm h-10 lg:h-14 px-3"
+            className="flex justify-between items-center font-albert text-secondary lg:text-2xl text-lg bg-primary/30 border-2 border-secondary rounded-sm h-10 lg:h-14 px-3 cursor-pointer"
           >
             {attendingDropdown === null
               ? "Selecciona"
@@ -210,7 +210,7 @@ export default function NewGuestForm() {
                     setAttendingDropdown(option.value);
                     setDropdownIsOpen(false);
                   }}
-                  className="flex font-albert text-background text-xl justify-center items-center bg-primary rounded-2xl h-7 px-16 py-6"
+                  className="flex font-albert text-background text-xl justify-center items-center bg-primary rounded-2xl h-7 px-16 py-6 cursor-pointer hover:bg-secondary"
                 >
                   {option.label}
                 </button>
