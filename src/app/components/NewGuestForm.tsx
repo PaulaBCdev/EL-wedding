@@ -277,7 +277,7 @@ export default function NewGuestForm() {
       <button
         disabled={isDisabled}
         type="submit"
-        className={`bg-secondary rounded-md font-catchy text-background text-3xl lg:text-4xl pb-4 pt-6 mt-28 mx-[100px] md:mx-[150px] lg:mx-0 lg:ml-[700px]hover:bg-secondary-light ${
+        className={`bg-secondary rounded-md font-catchy text-background text-2xl lg:text-4xl pb-4 pt-6 mt-28 mx-10 md:mx-[150px] lg:mx-0 lg:ml-[700px] hover:bg-secondary-light ${
           isDisabled ? "cursor-not-allowed, opacity-50" : "cursor-pointer"
         }`}
       >
