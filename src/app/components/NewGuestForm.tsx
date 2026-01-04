@@ -20,6 +20,8 @@ export default function NewGuestForm() {
   const [notesInput, setNotesInput] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
+  const [error, setError] = useState("");
+
   const router = useRouter();
 
   const dropdownOptions = [
@@ -75,6 +77,25 @@ export default function NewGuestForm() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Validations
+    setError("");
+
+    if (nameInput.length < 3) {
+      setError("El nombre debe tener al menos 3 caracteres");
+      return;
+    }
+
+    if (surnameInput.length < 3) {
+      setError("Los appelidos deben tener al menos 3 caracteres");
+      return;
+    }
+
+    if (contactInput.toString().length < 9) {
+      setError("El teléfono de contacto debe tener al menos 9 digitos");
+      return;
+    }
+
     setIsLoading(true);
 
     try {
@@ -105,6 +126,11 @@ export default function NewGuestForm() {
       }, 2000);
     } catch (error) {
       console.error(error);
+      setError(
+        error instanceof Error
+          ? error.message
+          : "Error al confirmar tu asistencia"
+      );
       toast.error("Error al confirmar tu asistencia");
     } finally {
       setIsLoading(false);
@@ -116,162 +142,168 @@ export default function NewGuestForm() {
       onSubmit={handleSubmit}
       className="flex flex-col w-full max-w-xl md:max-w-2xl lg:max-w-5xl px-16 gap-6"
     >
-      {/* name input */}
-      <div className="flex flex-col">
-        <label
-          htmlFor="name"
-          className="font-catchy text-secondary text-2xl lg:text-4xl"
-        >
-          Nombre
-        </label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          required
-          minLength={3}
-          maxLength={20}
-          onChange={handleNameChange}
-          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl h-10 lg:h-14 px-3"
-        />
-      </div>
-
-      {/* surname input */}
-      <div className="flex flex-col">
-        <label
-          htmlFor="surname"
-          className="font-catchy text-secondary text-2xl lg:text-4xl"
-        >
-          Apellidos
-        </label>
-        <input
-          type="text"
-          name="surname"
-          id="surname"
-          required
-          minLength={3}
-          maxLength={50}
-          onChange={handleSurnameChange}
-          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl h-10 lg:h-14 px-3"
-        />
-      </div>
-
-      {/* contact input */}
-      <div className="flex flex-col">
-        <label
-          htmlFor="contact"
-          className="font-catchy text-secondary text-2xl lg:text-4xl"
-        >
-          Teléfono de contacto
-        </label>
-        <input
-          type="number"
-          name="contact"
-          id="contact"
-          required
-          minLength={3}
-          maxLength={50}
-          onChange={handleContactChange}
-          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl h-10 lg:h-14 px-3"
-        />
-      </div>
-
-      {/* attending & children inputs */}
-      <div className="flex flex-col justify-between md:flex-row gap-6">
-        {/* attending dropdown */}
-        <div className="flex flex-col w-full">
+      <div className="flex flex-col gap-10">
+        {/* name input */}
+        <div className="flex flex-col">
           <label
-            htmlFor="attending"
+            htmlFor="name"
             className="font-catchy text-secondary text-2xl lg:text-4xl"
           >
-            ¿Asistirás?
-          </label>
-          <button
-            type="button"
-            onClick={toogleDropdown}
-            className="flex justify-between items-center font-albert text-secondary lg:text-2xl text-lg bg-primary/30 border-2 border-secondary rounded-sm h-10 lg:h-14 px-3 cursor-pointer"
-          >
-            {attendingDropdown === null
-              ? "Selecciona"
-              : attendingDropdown
-              ? "Sí"
-              : "No"}
-
-            {dropdownIsOpen ? <ChevronUp /> : <ChevronDown />}
-          </button>
-
-          {dropdownIsOpen && (
-            <div className=" flex flex-col gap-1 my-2 right-0 top-20">
-              {dropdownOptions.map((option, index) => (
-                <button
-                  type="button"
-                  key={index}
-                  onClick={() => {
-                    setAttendingDropdown(option.value);
-                    setDropdownIsOpen(false);
-                  }}
-                  className="flex font-albert text-background text-xl justify-center items-center bg-primary rounded-2xl h-7 px-16 py-6 cursor-pointer hover:bg-secondary"
-                >
-                  {option.label}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-
-        {/* children input */}
-        <div className="flex flex-col w-full">
-          <label
-            htmlFor="children"
-            className="font-catchy text-secondary text-2xl lg:text-4xl"
-          >
-            ¿Te acompañarán niños?
+            Nombre*
           </label>
           <input
-            type="number"
-            name="children"
-            id="children"
-            placeholder="0"
-            onChange={handleChildrenChange}
+            type="text"
+            name="name"
+            id="name"
+            required
+            aria-required="true"
+            onChange={handleNameChange}
             className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl h-10 lg:h-14 px-3"
           />
         </div>
+
+        {/* surname input */}
+        <div className="flex flex-col">
+          <label
+            htmlFor="surname"
+            className="font-catchy text-secondary text-2xl lg:text-4xl"
+          >
+            Apellidos*
+          </label>
+          <input
+            type="text"
+            name="surname"
+            id="surname"
+            required
+            aria-required="true"
+            onChange={handleSurnameChange}
+            className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl h-10 lg:h-14 px-3"
+          />
+        </div>
+
+        {/* contact input */}
+        <div className="flex flex-col">
+          <label
+            htmlFor="contact"
+            className="font-catchy text-secondary text-2xl lg:text-4xl"
+          >
+            Teléfono de contacto*
+          </label>
+          <input
+            type="number"
+            name="contact"
+            id="contact"
+            required
+            aria-required="true"
+            onChange={handleContactChange}
+            className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl h-10 lg:h-14 px-3"
+          />
+        </div>
+
+        {/* attending & children inputs */}
+        <div className="flex flex-col justify-between md:flex-row gap-6">
+          {/* attending dropdown */}
+          <div className="flex flex-col w-full">
+            <label
+              htmlFor="attending"
+              className="font-catchy text-secondary text-2xl lg:text-4xl"
+            >
+              ¿Asistirás?*
+            </label>
+            <button
+              type="button"
+              onClick={toogleDropdown}
+              className="flex justify-between items-center font-albert text-secondary lg:text-2xl text-lg bg-primary/30 border-2 border-secondary rounded-sm h-10 lg:h-14 px-3 cursor-pointer"
+            >
+              {attendingDropdown === null
+                ? "Selecciona"
+                : attendingDropdown
+                ? "Sí"
+                : "No"}
+
+              {dropdownIsOpen ? <ChevronUp /> : <ChevronDown />}
+            </button>
+
+            {dropdownIsOpen && (
+              <div className=" flex flex-col gap-1 my-2 right-0 top-20">
+                {dropdownOptions.map((option, index) => (
+                  <button
+                    type="button"
+                    key={index}
+                    onClick={() => {
+                      setAttendingDropdown(option.value);
+                      setDropdownIsOpen(false);
+                    }}
+                    className="flex font-albert text-background text-xl justify-center items-center bg-primary rounded-2xl h-7 px-16 py-6 cursor-pointer hover:bg-secondary"
+                  >
+                    {option.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* children input */}
+          <div className="flex flex-col w-full">
+            <label
+              htmlFor="children"
+              className="font-catchy text-secondary text-2xl lg:text-4xl"
+            >
+              ¿Te acompañarán niños?
+            </label>
+            <input
+              type="number"
+              name="children"
+              id="children"
+              placeholder="0"
+              onChange={handleChildrenChange}
+              className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl h-10 lg:h-14 px-3"
+            />
+          </div>
+        </div>
+
+        {/* allergies input */}
+        <div className="flex flex-col">
+          <label
+            htmlFor="allergies"
+            className="font-catchy text-secondary text-2xl lg:text-4xl"
+          >
+            ¿Alguna restricción alimentaria?
+          </label>
+          <textarea
+            name="allergies"
+            id="allergies"
+            rows={4}
+            placeholder="Dieta vegana, alergia al gluten..."
+            onChange={handleAllergiesChange}
+            className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl p-3"
+          ></textarea>
+        </div>
+
+        {/* notes input */}
+        <div className="flex flex-col">
+          <label
+            htmlFor="notes"
+            className="font-catchy text-secondary text-2xl lg:text-4xl"
+          >
+            ¿Tienes alguna pregunta o comentario?
+          </label>
+          <textarea
+            name="notes"
+            id="notes"
+            rows={4}
+            onChange={handleNotesChange}
+            className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl p-3"
+          ></textarea>
+        </div>
       </div>
 
-      {/* allergies input */}
-      <div className="flex flex-col">
-        <label
-          htmlFor="allergies"
-          className="font-catchy text-secondary text-2xl lg:text-4xl"
-        >
-          ¿Alguna restricción alimentaria?
-        </label>
-        <textarea
-          name="allergies"
-          id="allergies"
-          rows={4}
-          placeholder="Dieta vegana, alergia al gluten..."
-          onChange={handleAllergiesChange}
-          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl p-3"
-        ></textarea>
-      </div>
-
-      {/* notes input */}
-      <div className="flex flex-col">
-        <label
-          htmlFor="notes"
-          className="font-catchy text-secondary text-2xl lg:text-4xl"
-        >
-          ¿Tienes alguna pregunta o comentario?
-        </label>
-        <textarea
-          name="notes"
-          id="notes"
-          rows={4}
-          onChange={handleNotesChange}
-          className="bg-primary/30 border-secondary border-2 rounded-sm font-albert text-secondary font-normal lg:text-2xl p-3"
-        ></textarea>
-      </div>
+      {/* error message */}
+      {error && (
+        <div className="font-albert text-2xl text-red-500" role="alert">
+          {error}
+        </div>
+      )}
 
       {/* submit button */}
       <button
